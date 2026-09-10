@@ -1,45 +1,128 @@
-<!DOCTYPE html><!--Le dice al navegador que es un documento de tipo HTML para que lo renderice-->
-<html lang="es"><!--Lenguaje de la página-->
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
     <title>EcoVida - Ahorro de Agua y Energía</title>
 </head>
 <body>
+
+    <!-- HEADER -->
     <header>
-        <!--Encabezado: título principal, logo y menú de navegación-->
         <h1>EcoVida</h1>
         <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="./pages/calcular.html">Calculadora</a></li>
-                <li><a href="./pages/consejos.html">Consejos</a></li>
-                <li><a href="./pages/blog.html">Blog</a></li>
-                <li><a href="./pages/nosotros.html">Nosotros</a></li>
-                <li><a href="./pages/contacto.html">Contacto</a></li>
-            </ul>
+            <a href="#inicio">Inicio</a>
+            <a href="#calculadora">Calculadora</a>
+            <a href="#consejos">Consejos</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto">Contacto</a>
         </nav>
     </header>
-    <main>
-        <!--Contenido principal (estilo SPA: las secciones grandes se abren en pages/)-->
-        <section id="inicio">
-            <h2>Ahorra agua y energía hoy</h2>
-            <!--Aquí irá la presentación y las estadísticas de impacto-->
-        </section>
-        <section id="agua">
-            <h2>Agua</h2>
-            <!--Consumo responsable de agua-->
-        </section>
-        <section id="energia">
-            <h2>Energía</h2>
-            <!--Uso eficiente de la energía-->
-        </section>
-    </main>
+
+    <!-- SECCIÓN INICIO -->
+    <section id="inicio">
+        <h2>Ahorra Agua y Energía</h2>
+        <p>Pequeños cambios en tu rutina generan un gran impacto en el medio ambiente.</p>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Agua</h3>
+                <p>Reduce tu consumo de agua en casa.</p>
+                <a href="#consejos">Ver consejos</a>
+            </div>
+            <div class="card">
+                <h3>Energía</h3>
+                <p>Optimiza el uso de electricidad.</p>
+                <a href="#consejos">Ver consejos</a>
+            </div>
+            <div class="card">
+                <h3>Sostenibilidad</h3>
+                <p>Contribuye al cuidado del planeta.</p>
+                <a href="#nosotros">Conócenos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CALCULADORA -->
+    <section id="calculadora">
+        <h2>Calculadora de Consumo</h2>
+        <p>Ingresa tus datos para estimar tu consumo diario.</p>
+
+        <form>
+            <label>Personas en el hogar:</label>
+            <input type="number" value="3">
+
+            <label>Minutos de ducha:</label>
+            <input type="number" value="10">
+
+            <label>Lavados por semana:</label>
+            <input type="number" value="4">
+
+            <label>Bombillas en casa:</label>
+            <input type="number" value="8">
+
+            <button type="button">Calcular</button>
+        </form>
+
+        <div class="resultado">
+            <p><strong>Agua:</strong> 150 L/día</p>
+            <p><strong>Energía:</strong> 5 kWh/día</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CONSEJOS -->
+    <section id="consejos">
+        <h2>Consejos Prácticos</h2>
+        <ul>
+            <li>Cierra la llave al lavarte los dientes.</li>
+            <li>Desconecta aparatos en stand-by.</li>
+            <li>Usa bombillas LED.</li>
+            <li>Repara fugas de agua.</li>
+            <li>Lava con agua fría.</li>
+            <li>Reutiliza el agua de lluvia.</li>
+        </ul>
+    </section>
+
+    <!-- SECCIÓN NOSOTROS -->
+    <section id="nosotros">
+        <h2>Quiénes Somos</h2>
+        <p>Somos estudiantes comprometidos con el medio ambiente.</p>
+
+        <h3>Misión</h3>
+        <p>Educar sobre el ahorro de agua y energía.</p>
+
+        <h3>Visión</h3>
+        <p>Ser líderes en educación ambiental.</p>
+
+        <h3>ODS</h3>
+        <p>ODS 6: Agua limpia | ODS 7: Energía limpia | ODS 13: Acción climática</p>
+    </section>
+
+    <!-- SECCIÓN CONTACTO -->
+    <section id="contacto">
+        <h2>Contáctanos</h2>
+        <form>
+            <label>Nombre:</label>
+            <input type="text" placeholder="Tu nombre">
+
+            <label>Email:</label>
+            <input type="email" placeholder="correo@ejemplo.com">
+
+            <label>Mensaje:</label>
+            <textarea rows="4" placeholder="Escribe tu mensaje"></textarea>
+
+            <button type="button">Enviar</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <!--Pie de página: derechos de autor, redes sociales, mini-mapa del sitio y mini formulario de contacto-->
-        <section>
-            <p>&copy; 2026 EcoVida - Todos los derechos reservados</p>
-        </section>
+        <p>&copy; 2026 EcoVida - Todos los derechos reservados</p>
+        <div class="breadcrumbs">
+            <a href="#inicio">Inicio</a> > <span>Sección actual</span>
+        </div>
     </footer>
+
 </body>
 </html>
