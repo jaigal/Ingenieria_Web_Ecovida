@@ -1,0 +1,46 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f4f0;
+    padding: 20px;
+}
+
+/* HEADER */
+header {
+    background: #1b5e20;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+/* MENÚ VERTICAL */
+nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+}
+
+/* SECCIONES */
+section {
+    background: white;
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+}
+
+/* FOOTER */
+footer {
+    background: #1b5e20;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 15px;
+}
