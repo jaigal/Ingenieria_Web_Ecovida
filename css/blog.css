@@ -1,36 +1,44 @@
-/* =========================================
-   ECOVIDA - ESTILOS DE LA PÁGINA BLOG (blog.css)
-   Se carga DESPUÉS de style.css, por eso puede cambiar lo global.
-   Responsable: Jessica
-   ========================================= */
+/* ===== ESTILOS SOLO DE LA PÁGINA BLOG ===== */
 
-/* ===== TÍTULO DE LA PÁGINA ===== */
-.titulo-pagina {
-    color: var(--verde-oscuro);
-    font-size: 2rem;
-    margin-bottom: 20px;
+/* Banner: la misma técnica del hero (degradado + imagen de fondo) en pequeño */
+#blog .banner-blog {
+    background-image:
+        linear-gradient(20deg, rgba(27, 94, 32, 0.85) 25%, rgba(2, 119, 189, 0.6) 100%),
+        url("../images/hero-agua.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--blanco);
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
 }
 
-/* El contenedor de la página ya tiene espacio alrededor:
-   al de las tarjetas de adentro le quitamos el suyo */
-.contenedor-pagina .contenedor-tarjetas {
-    padding: 0;
+#blog .banner-blog .titulo-pagina {
+    color: var(--blanco);
+    margin-bottom: 10px;
 }
 
-/* ===== ARTÍCULOS ===== */
-/* #blog .tarjeta (id + clase) gana a .tarjeta (solo clase): solo cambian las del blog */
-#blog .tarjeta {
-    border-top-color: var(--azul);
+/* Tarjetas con imagen: figure + figcaption */
+#blog .tarjeta figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
-#blog .tarjeta h3 {
-    font-size: 1.4rem;
+#blog .tarjeta figcaption {
+    font-weight: 700;
+    color: var(--azul);
+    margin: 8px 0 12px;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 575px) {
-    .titulo-pagina {
-        font-size: 1.6rem;
-        text-align: center;
-    }
+#blog .tarjeta a {
+    color: var(--azul);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+#blog .tarjeta a:hover {
+    text-decoration: underline;
 }
