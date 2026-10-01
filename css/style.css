@@ -1,10 +1,9 @@
-/* =========================================
+/* 
    ECOVIDA - ESTILOS GLOBALES (style.css)
    Se carga en TODAS las páginas, siempre ANTES del CSS de cada página.
    Aquí va solo lo que comparten todas: paleta, reset, fuente, header,
    menú, footer y los componentes que se repiten (botón, tarjeta, lista).
-   Responsable: Jessica
-   ========================================= */
+*/
 
 /*  PALETA DE COLORES (variables)*/
 :root {
