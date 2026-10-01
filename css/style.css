@@ -1,30 +1,28 @@
-/* 
-   ECOVIDA - ESTILOS GLOBALES (style.css)
-   Se carga en TODAS las páginas, siempre ANTES del CSS de cada página.
-   Aquí va solo lo que comparten todas: paleta, reset, fuente, header,
-   menú, footer y los componentes que se repiten (botón, tarjeta, lista).
-*/
+/* =========================================
+   ECOVIDA - HOJA DE ESTILOS PRINCIPAL
+   (se usa en index.html y en todas las páginas de pages/)
+   ========================================= */
 
-/*  PALETA DE COLORES (variables)*/
+/* ===== VARIABLES DE COLOR (extra: un solo blanco y un solo verde para todo el sitio) ===== */
 :root {
-    --verde-oscuro: #1b5e20;
+    --verde-oscuro: #1b5e20;   /* el verde que ya usaban en header y footer */
     --verde: #2e7d32;
     --azul: #0277bd;
     --amarillo: #f9a825;
     --amarillo-oscuro: #f57f17;
-    --blanco: #ffffff;   /* el único blanco de todo el sitio */
-    --fondo: #f0f4f0;
+    --blanco: #ffffff;         /* el blanco que ya usaban ("white") */
+    --fondo: #f0f4f0;          /* el fondo que ya usaban en body */
     --texto: #263238;
 }
 
-/*  RESET  */
+/* ===== RESET ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/*  FUENTE Y BODY  */
+/* ===== BODY ===== */
 body {
     font-family: "Nunito", Arial, sans-serif;
     color: var(--texto);
@@ -37,11 +35,40 @@ body {
 }
 
 main {
-    flex: 1;      /* ocupa el espacio que sobra y empuja el footer hacia abajo */
+    flex: 1;      /* el main ocupa el espacio que sobra y empuja el footer hacia abajo */
     width: 100%;
 }
 
-/*  HEADER  */
+/* ===== MARQUESINA (solo en index) ===== */
+.marquesina {
+    background-color: var(--verde);
+    color: var(--blanco);
+    overflow: hidden; /* oculta los mensajes que se salen */
+    padding: 8px 0;
+}
+
+.mensajes {
+    display: flex;
+    gap: 60px;
+    width: max-content;
+    animation: desplazar 18s linear infinite;
+}
+
+.mensaje {
+    white-space: nowrap; /* que el mensaje no se parta en dos líneas */
+    font-weight: 600;
+}
+
+@keyframes desplazar {
+    from {
+        transform: translateX(100vw); /* empieza por fuera a la derecha */
+    }
+    to {
+        transform: translateX(-100%); /* termina por fuera a la izquierda */
+    }
+}
+
+/* ===== HEADER ===== */
 .header-principal {
     display: flex;
     justify-content: space-between; /* logo a la izquierda, menú a la derecha */
@@ -57,7 +84,7 @@ main {
     font-size: 2rem;
 }
 
-/*  MENÚ  */
+/* ===== MENÚ HORIZONTAL ===== */
 .menu ul {
     display: flex;
     flex-wrap: wrap;
@@ -81,9 +108,63 @@ main {
     border-bottom-color: var(--amarillo);
 }
 
-/*  COMPONENTES COMPARTIDOS */
+/* ===== HERO (solo en index) ===== */
+.hero {
+    position: relative; /* no mueve nada: marca la referencia para ubicar a los hijos */
+    background-image:
+        linear-gradient(
+            20deg,
+            rgba(27, 94, 32, 0.85) 25%,
+            rgba(2, 119, 189, 0.6) 40%,
+            rgba(249, 168, 37, 0.35) 100%
+        ),
+        url("../images/hero-agua.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--blanco);
+    text-align: left;
+    padding: 200px 40px;
+    overflow: hidden;
+}
 
-/* Botón base (index y calculadora) */
+/* Polígono (triángulo) en la parte de abajo del hero */
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: var(--fondo);
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}
+
+.hero-content {
+    position: relative;
+    max-width: 600px;
+    z-index: 1; /* el texto queda en la capa de adelante */
+}
+
+.hero h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+/* ===== BOTONES ===== */
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
 .btn {
     display: inline-block;
     padding: 12px 28px;
@@ -106,7 +187,17 @@ main {
     background-color: var(--amarillo-oscuro);
 }
 
-/* Contenedores (se usan en casi todas las páginas) */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--blanco);
+    border: 2px solid var(--blanco);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== CONTENEDORES DE PÁGINA ===== */
 .contenedor-pagina {
     max-width: 900px;
     margin: 0 auto; /* centra el contenedor */
@@ -115,7 +206,7 @@ main {
 
 .contenedor-tarjetas {
     display: flex;
-    flex-wrap: wrap; /* si no caben, bajan a la siguiente línea */
+    flex-wrap: wrap; /* en pantallas pequeñas se ponen una debajo de la otra */
     justify-content: center;
     gap: 30px;
     max-width: 1200px;
@@ -123,7 +214,18 @@ main {
     padding: 4% 3%;
 }
 
-/* Tarjeta base (index, consejos, nosotros, blog, contacto y calculadora) */
+/* Dentro de una página (blog) el contenedor ya tiene espacio alrededor */
+.contenedor-pagina .contenedor-tarjetas {
+    padding: 0;
+}
+
+.titulo-pagina {
+    color: var(--verde-oscuro);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* ===== TARJETAS ===== */
 .tarjeta {
     flex: 1 1 300px; /* crece, se encoge, tamaño base 300px */
     background-color: var(--blanco);
@@ -139,6 +241,12 @@ main {
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
 }
 
+/* El id gana en especificidad a la clase: solo estas tarjetas cambian el color del borde */
+#energia,
+#consejos-energia {
+    border-top-color: var(--amarillo);
+}
+
 .tarjeta h2,
 .tarjeta h3 {
     color: var(--verde);
@@ -149,11 +257,13 @@ main {
     font-size: 1.8rem;
 }
 
-.tarjeta p {
+/* Con coma: el mismo estilo para grupos independientes */
+.tarjeta p,
+.consejo p {
     margin-bottom: 15px;
 }
 
-/* Listas dentro de tarjetas: el reset les quitó el espacio de los puntos */
+/* Listas dentro de las tarjetas: el reset les quitó el espacio de los puntos */
 .lista {
     padding-left: 20px;
 }
@@ -162,7 +272,54 @@ main {
     margin-bottom: 8px;
 }
 
-/*  FOOTER  */
+/* ===== CONSEJO DEL DÍA (solo en index) ===== */
+.consejo {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--blanco);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.consejo h2 {
+    color: var(--azul);
+    margin-bottom: 10px;
+}
+
+#consejo-texto {
+    font-size: 1.2rem;
+    min-height: 60px;
+}
+
+/* ===== FORMULARIO (calculadora) ===== */
+.formulario label {
+    display: block; /* cada etiqueta en su propia línea */
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.formulario input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.formulario input:focus {
+    outline: none;
+    border-color: var(--verde);
+}
+
+.formulario button {
+    margin-top: 20px;
+}
+
+/* ===== FOOTER ===== */
 footer {
     background-image: linear-gradient(90deg, var(--verde-oscuro), var(--azul));
     color: var(--blanco);
@@ -170,7 +327,7 @@ footer {
     padding: 25px 20px;
 }
 
-/* RESPONSIVE (siempre al final) */
+/* ===== RESPONSIVE (las media queries siempre van al final) ===== */
 @media (max-width: 575px) {
     .header-principal {
         flex-direction: column;
@@ -180,6 +337,14 @@ footer {
     .menu ul {
         justify-content: center;
         gap: 12px;
+    }
+
+    .hero {
+        padding: 100px 20px;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
     }
 
     .tarjeta {
