@@ -1,0 +1,33 @@
+/* =========================================
+   ECOVIDA - ESTILOS DE LA PÁGINA CONTACTO (contacto.css)
+   Se carga DESPUÉS de style.css.
+   Responsable: Jessica
+   ========================================= */
+
+/* ===== LISTA DE DATOS DE CONTACTO ===== */
+#contacto .lista {
+    list-style: none; /* sin puntos: cada dato se ve como un bloque */
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+#contacto .lista li {
+    background-color: var(--fondo);
+    padding: 10px 15px;
+    border-left: 4px solid var(--verde);
+    border-radius: 8px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+/* Al pasar el mouse el dato se corre 5px a la derecha */
+#contacto .lista li:hover {
+    transform: translateX(5px);
+    border-left-color: var(--amarillo);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 575px) {
+    #contacto .lista li {
+        font-size: 0.95rem;
+    }
+}

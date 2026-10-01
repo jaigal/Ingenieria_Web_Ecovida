@@ -1,0 +1,36 @@
+/* =========================================
+   ECOVIDA - ESTILOS DE LA PÁGINA BLOG (blog.css)
+   Se carga DESPUÉS de style.css, por eso puede cambiar lo global.
+   Responsable: Jessica
+   ========================================= */
+
+/* ===== TÍTULO DE LA PÁGINA ===== */
+.titulo-pagina {
+    color: var(--verde-oscuro);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* El contenedor de la página ya tiene espacio alrededor:
+   al de las tarjetas de adentro le quitamos el suyo */
+.contenedor-pagina .contenedor-tarjetas {
+    padding: 0;
+}
+
+/* ===== ARTÍCULOS ===== */
+/* #blog .tarjeta (id + clase) gana a .tarjeta (solo clase): solo cambian las del blog */
+#blog .tarjeta {
+    border-top-color: var(--azul);
+}
+
+#blog .tarjeta h3 {
+    font-size: 1.4rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 575px) {
+    .titulo-pagina {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+}
