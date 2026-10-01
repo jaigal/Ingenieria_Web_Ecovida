@@ -1,45 +1,106 @@
-<!DOCTYPE html><!--Le dice al navegador que es un documento de tipo HTML para que lo renderice-->
-<html lang="es"><!--Lenguaje de la página-->
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<!--Le dice al navegador que es un documento de tipo HTML para que lo renderice-->
+<html lang="es">
+  <!--Lenguaje de la página-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Fuente de Google Fonts (igual que en el código de clase)-->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!--Hoja de estilos: conecta este HTML con el archivo CSS-->
+    <link rel="stylesheet" href="./css/styles.css" />
     <title>EcoVida - Ahorro de Agua y Energía</title>
-</head>
-<body>
-    <header>
-        <!--Encabezado: título principal, logo y menú de navegación-->
-        <h1>EcoVida</h1>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="./pages/calcular.html">Calculadora</a></li>
-                <li><a href="./pages/consejos.html">Consejos</a></li>
-                <li><a href="./pages/blog.html">Blog</a></li>
-                <li><a href="./pages/nosotros.html">Nosotros</a></li>
-                <li><a href="./pages/contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
+  </head>
+  <body>
+    <!--Marquesina: mensajes que se mueven con una animación hecha en CSS-->
+    <section class="marquesina">
+      <div class="mensajes">
+        <span class="mensaje">Cierra la llave al cepillarte</span>
+        <span class="mensaje">Usa bombillos LED</span>
+        <span class="mensaje">Desconecta los equipos en espera</span>
+        <span class="mensaje">Reutiliza el agua lluvia</span>
+      </div>
+    </section>
+    <header class="header-principal">
+      <!--Encabezado: título principal, logo y menú de navegación-->
+      <h1 class="logo">EcoVida</h1>
+      <nav class="menu">
+        <ul>
+          <li><a href="#inicio" class="activo">Inicio</a></li>
+          <li><a href="./pages/calcular.html">Calculadora</a></li>
+          <li><a href="./pages/consejos.html">Consejos</a></li>
+          <li><a href="./pages/blog.html">Blog</a></li>
+          <li><a href="./pages/nosotros.html">Nosotros</a></li>
+          <li><a href="./pages/contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <!--Contenido principal (estilo SPA: las secciones grandes se abren en pages/)-->
-        <section id="inicio">
-            <h2>Ahorra agua y energía hoy</h2>
-            <!--Aquí irá la presentación y las estadísticas de impacto-->
+      <!--Contenido principal (estilo SPA: las secciones grandes se abren en pages/)-->
+      <!--Hero: la sección más destacada; su imagen de fondo se pone desde el CSS-->
+      <section id="inicio" class="hero">
+        <div class="hero-content">
+          <h2>Ahorra agua y energía hoy</h2>
+          <p>
+            EcoVida es un sitio educativo que ayuda a los hogares colombianos a
+            reducir su consumo de agua y energía mediante hábitos responsables y
+            una calculadora de huella.
+          </p>
+          <p>
+            Según el DANE, cada persona en Colombia consume en promedio 150 litros
+            de agua al día, cuando lo recomendado son 100 litros. Además, el 70 %
+            de la energía del país proviene de fuentes hídricas vulnerables al
+            cambio climático.
+          </p>
+          <div class="hero-buttons">
+            <a href="./pages/calcular.html" class="btn btn-primary">Calcular mi huella</a>
+            <a href="#agua" class="btn btn-secondary">Ver consejos</a>
+          </div>
+        </div>
+      </section>
+      <!--Tarjetas: agua y energía, una al lado de la otra con flex-->
+      <div class="contenedor-tarjetas">
+        <section id="agua" class="tarjeta">
+          <h2>Agua</h2>
+          <p>
+            El agua es un recurso limitado. Con pequeños cambios en casa se reduce
+            el desperdicio: cerrar la llave al cepillarse, reparar las fugas y
+            reutilizar el agua lluvia para el jardín.
+          </p>
+          <p>
+            Una llave goteando puede desperdiciar más de 30 litros de agua al día.
+            Revisar y reparar las fugas es una de las formas más sencillas de
+            ahorrar.
+          </p>
         </section>
-        <section id="agua">
-            <h2>Agua</h2>
-            <!--Consumo responsable de agua-->
+        <section id="energia" class="tarjeta">
+          <h2>Energía</h2>
+          <p>
+            El uso eficiente de la energía reduce la factura y protege el
+            ambiente. Apagar las luces que no se usan, desconectar los equipos en
+            modo de espera y aprovechar la luz natural marcan la diferencia.
+          </p>
+          <p>
+            Cambiar los bombillos tradicionales por bombillos LED puede reducir
+            hasta un 80 % el consumo de energía en la iluminación del hogar.
+          </p>
         </section>
-        <section id="energia">
-            <h2>Energía</h2>
-            <!--Uso eficiente de la energía-->
-        </section>
+      </div>
+      <!--Consejo del día: el texto del párrafo lo cambia JavaScript-->
+      <section id="consejo-del-dia" class="consejo">
+        <h2>Consejo del día</h2>
+        <p id="consejo-texto">Presiona el botón para ver un consejo.</p>
+        <button id="btn-consejo" class="btn btn-primary" type="button">Dame un consejo</button>
+      </section>
     </main>
     <footer>
-        <!--Pie de página: derechos de autor, redes sociales, mini-mapa del sitio y mini formulario de contacto-->
-        <section>
-            <p>&copy; 2026 EcoVida - Todos los derechos reservados</p>
-        </section>
+      <!--Pie de página: derechos de autor, redes sociales, mini-mapa del sitio y mini formulario de contacto-->
+      <section>
+        <!--El año lo actualiza JavaScript-->
+        <p>&copy; <span id="anio">2026</span> EcoVida - Todos los derechos reservados</p>
+      </section>
     </footer>
-</body>
+    <!--JavaScript al final del body: así el HTML ya existe cuando el script lo busca-->
+    <script src="./js/main.js"></script>
+  </body>
 </html>
