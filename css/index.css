@@ -1,1 +1,147 @@
-/* Estilos de la página de inicio - Yair */
+/* =========================================
+   ECOVIDA - ESTILOS DE LA PÁGINA DE INICIO (index.css)
+   Se carga DESPUÉS de style.css: aquí va solo lo propio del index.
+   Los colores salen de las variables de style.css (var(--verde), etc.)
+   Responsable: Yair
+   ========================================= */
+
+/* ===== MARQUESINA (franja delgada con mensajes que se mueven) ===== */
+/* Verde un poco más claro que el header: se ve como parte del encabezado */
+.marquesina {
+    background-color: var(--verde);
+    color: var(--blanco);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 6px 0;
+    overflow: hidden;      /* esconde lo que se sale de la franja */
+    white-space: nowrap;   /* todos los mensajes en una sola línea */
+}
+
+.mensajes {
+    display: inline-flex;  /* los mensajes uno al lado del otro */
+    gap: 60px;             /* espacio entre mensaje y mensaje */
+    padding-left: 100%;    /* empiezan escondidos a la derecha de la pantalla */
+    animation: desplazar 25s linear infinite; /* nombre, duración, velocidad pareja, se repite siempre */
+}
+
+/* :hover = mouse encima: la marquesina se detiene para poder leer */
+.marquesina:hover .mensajes {
+    animation-play-state: paused;
+}
+
+/* La animación: los mensajes se mueven de derecha a izquierda */
+@keyframes desplazar {
+    from {
+        transform: translateX(0);      /* posición inicial */
+    }
+    to {
+        transform: translateX(-100%);  /* termina corrido todo su ancho a la izquierda */
+    }
+}
+
+/* ===== HERO (la sección grande con la foto de los paneles) ===== */
+.hero {
+    /* Técnica del código de clase: dos capas de fondo separadas por coma.
+       La PRIMERA queda ENCIMA: el degradado verde-azul transparente.
+       La SEGUNDA queda DEBAJO: la foto. Así se ve la foto "pintada" de verde. */
+    background-image:
+        linear-gradient(20deg, rgba(27, 94, 32, 0.85) 25%, rgba(2, 119, 189, 0.6) 100%),
+        url("../images/hero-solar.jpg");
+    background-size: cover;       /* la foto cubre todo el hero sin deformarse */
+    background-position: center;  /* se centra la foto */
+    background-repeat: no-repeat; /* la foto no se repite */
+    color: var(--blanco);
+    min-height: 80vh;             /* alto mínimo: 80% del alto de la pantalla */
+    display: flex;
+    align-items: center;          /* con flex: centra el texto de arriba a abajo */
+    padding: 60px 8%;             /* 60px arriba y abajo, 8% a los lados */
+}
+
+/* El texto queda a la izquierda y no pasa de 650px de ancho */
+.hero-content {
+    max-width: 650px;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* sombra suave para que se lea sobre la foto */
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* Los dos botones en fila con flex */
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;  /* si no caben, bajan a la siguiente línea */
+    gap: 15px;        /* espacio entre los botones */
+    margin-top: 30px;
+}
+
+/* Botón secundario: blanco con letra verde.
+   Usa la base .btn de style.css y aquí solo cambia los colores */
+.btn-secondary {
+    background-color: var(--blanco);
+    color: var(--verde-oscuro);
+}
+
+.btn-secondary:hover {
+    background-color: var(--fondo);
+}
+
+/* ===== TARJETAS DE AGUA Y ENERGÍA ===== */
+/* La tarjeta base (.tarjeta) está en style.css.
+   Aquí solo se cambia el color del borde de la de energía, igual que en consejos */
+#energia {
+    border-top-color: var(--amarillo);
+}
+
+/* ===== CONSEJO DEL DÍA ===== */
+.consejo {
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto 50px;  /* auto a los lados = centrado; 50px abajo */
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--blanco);
+    border-left: 6px solid var(--amarillo);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.consejo h2 {
+    color: var(--verde);
+    margin-bottom: 10px;
+}
+
+/* El texto de este párrafo lo cambia JavaScript (js/main.js) al presionar el botón */
+#consejo-texto {
+    font-size: 1.15rem;
+    margin-bottom: 20px;
+}
+
+/* ===== RESPONSIVE (siempre al final) ===== */
+/* En celulares (pantallas de 575px o menos) */
+@media (max-width: 575px) {
+    .hero {
+        min-height: 70vh;
+        padding: 50px 20px;
+        text-align: center;      /* en celular el texto va centrado */
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        justify-content: center; /* botones centrados */
+    }
+}
