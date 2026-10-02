@@ -1,0 +1,31 @@
+/* =========================================
+   ECOVIDA - ESTILOS DE LA CALCULADORA
+   (pages/calcular.html)
+   Se carga DESPUÉS de style.css: aquí va solo lo propio de esta página.
+   ========================================= */
+
+/* ===== FORMULARIO ===== */
+.formulario label {
+    display: block;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.formulario input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.formulario input:focus {
+    outline: none;
+    border-color: var(--verde);
+}
+
+.formulario button {
+    margin-top: 20px;
+}

@@ -1,58 +1,45 @@
-<!DOCTYPE html>
-<!-- Le dice al navegador que es un documento de tipo HTML para que lo renderice -->
-
+<!doctype html>
+<!--Le dice al navegador que es un documento de tipo HTML para que lo renderice-->
 <html lang="es">
-  <!-- Lenguaje de la página -->
-
+  <!--Lenguaje de la página-->
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Consejos - EcoVida</title>
-    <!--Fuente Nunito de Google Fonts-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
-    <!--Primero los estilos generales y después los de esta página-->
+    <!--Hoja de estilos: ../ porque esta página está dentro de la carpeta pages/-->
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/consejos.css" />
+    <title>Consejos - EcoVida</title>
   </head>
-
   <body>
-
-    <header>
-      <!-- Encabezado: título y menú de navegación -->
-
-      <h1>EcoVida</h1>
-
-      <nav>
+    <header class="header-principal">
+      <!--Encabezado: título y menú de navegación-->
+      <h1 class="logo">EcoVida</h1>
+      <nav class="menu">
         <ul>
-          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../index.html#inicio">Inicio</a></li>
           <li><a href="./calcular.html">Calculadora</a></li>
-          <li><a href="./consejos.html">Consejos</a></li>
+          <li><a href="./consejos.html" class="activo">Consejos</a></li>
           <li><a href="./blog.html">Blog</a></li>
           <li><a href="./nosotros.html">Nosotros</a></li>
           <li><a href="./contacto.html">Contacto</a></li>
         </ul>
       </nav>
     </header>
-
-    <main>
-      <!-- Consejos de ahorro por categoría -->
-
-      <section id="consejos-agua">
+    <main class="contenedor-tarjetas">
+      <!--Consejos de ahorro por categoría-->
+      <section id="consejos-agua" class="tarjeta">
         <h2>Consejos para ahorrar agua</h2>
-
-        <ul>
+        <ul class="lista">
           <li>Cerrar la llave mientras te cepillas los dientes.</li>
           <li>Reparar las fugas y las llaves que gotean.</li>
           <li>Tomar duchas más cortas.</li>
           <li>Reutilizar el agua lluvia para regar las plantas.</li>
         </ul>
       </section>
-
-      <section id="consejos-energia">
+      <section id="consejos-energia" class="tarjeta">
         <h2>Consejos para ahorrar energía</h2>
-
-        <ul>
+        <ul class="lista">
           <li>Apagar las luces al salir de una habitación.</li>
           <li>Desconectar los aparatos que no se están usando.</li>
           <li>Cambiar los bombillos tradicionales por bombillos LED.</li>
@@ -60,14 +47,13 @@
         </ul>
       </section>
     </main>
-
     <footer>
-      <!-- Pie de página -->
-
+      <!--Pie de página: derechos de autor-->
       <section>
-        <p>&copy; 2026 EcoVida - Todos los derechos reservados</p>
+        <p>&copy; <span id="anio">2026</span> EcoVida - Todos los derechos reservados</p>
       </section>
     </footer>
-
+    <!--JavaScript al final del body-->
+    <script src="../js/main.js"></script>
   </body>
 </html>

@@ -1,31 +1,24 @@
 <!doctype html>
-<!-- Le dice al navegador que es un documento de tipo HTML para que lo renderice -->
-
+<!--Le dice al navegador que es un documento de tipo HTML para que lo renderice-->
 <html lang="es">
-  <!-- Lenguaje de la página -->
-
+  <!--Lenguaje de la página-->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Calculadora - EcoVida</title>
-    <!--Fuente Nunito de Google Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
-    <!--Primero los estilos generales y después los de esta página-->
+    <!--Hoja de estilos: ../ porque esta página está dentro de la carpeta pages/-->
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/calcular.css" />
+    <title>Calculadora - EcoVida</title>
   </head>
-
   <body>
-    <header>
-      <!-- Encabezado: título y menú de navegación -->
-
-      <h1>EcoVida</h1>
-
-      <nav>
+    <header class="header-principal">
+      <!--Encabezado: título y menú de navegación-->
+      <h1 class="logo">EcoVida</h1>
+      <nav class="menu">
         <ul>
-          <li><a href="../index.html">Inicio</a></li>
-          <li><a href="./calcular.html">Calculadora</a></li>
+          <li><a href="../index.html#inicio">Inicio</a></li>
+          <li><a href="./calcular.html" class="activo">Calculadora</a></li>
           <li><a href="./consejos.html">Consejos</a></li>
           <li><a href="./blog.html">Blog</a></li>
           <li><a href="./nosotros.html">Nosotros</a></li>
@@ -33,40 +26,37 @@
         </ul>
       </nav>
     </header>
-
-    <main>
-      <!-- Formulario para estimar el consumo del hogar -->
-
-      <section id="calculadora">
+    <main class="contenedor-pagina">
+      <!--Formulario para estimar el consumo del hogar (el cálculo en JS queda para la entrega final)-->
+      <section id="calculadora" class="tarjeta">
         <h2>Calculadora de consumo</h2>
-
         <p>
           Ingresa tus datos para estimar tu huella de agua y energía en el
           hogar.
         </p>
+        <form class="formulario">
+          <!--"for" del label = "id" del input: al hacer clic en el texto se activa la casilla-->
+          <label for="personas">Personas en el hogar:</label>
+          <input type="number" id="personas" name="personas" min="1" />
 
-        <form>
-          <label>Personas en el hogar:</label>
-          <input type="number" />
+          <label for="agua-mes">Consumo de agua al mes (litros):</label>
+          <input type="number" id="agua-mes" name="agua-mes" min="0" />
 
-          <label>Consumo de agua al mes (litros):</label>
-          <input type="number" />
+          <label for="energia-mes">Consumo de energía al mes (kWh):</label>
+          <input type="number" id="energia-mes" name="energia-mes" min="0" />
 
-          <label>Consumo de energía al mes (kWh):</label>
-          <input type="number" />
-
-          <button>Calcular</button>
+          <!--type="button": por ahora no envía el formulario ni recarga la página-->
+          <button type="button" class="btn btn-primary">Calcular</button>
         </form>
       </section>
     </main>
-
     <footer>
-      <!-- Pie de página -->
-
+      <!--Pie de página: derechos de autor-->
       <section>
-        <p>&copy; 2026 EcoVida - Todos los derechos reservados</p>
+        <p>&copy; <span id="anio">2026</span> EcoVida - Todos los derechos reservados</p>
       </section>
     </footer>
+    <!--JavaScript al final del body-->
+    <script src="../js/main.js"></script>
   </body>
 </html>
-

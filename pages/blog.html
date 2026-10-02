@@ -6,8 +6,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
-    <!--Hoja de estilos: ../ porque esta página está dentro de la carpeta pages/-->
+    <!--Hoja de estilos/-->
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/blog.css" />
     <title>EcoVida - Blog</title>
   </head>
   <body>
@@ -28,13 +29,48 @@
     <main class="contenedor-pagina">
       <!--Contenido del blog: artículos y tips de ahorro-->
       <section id="blog">
-        <h2 class="titulo-pagina">Blog de EcoVida</h2>
+        <!--Banner:-->
+        <div class="banner-blog">
+          <h2 class="titulo-pagina">Blog de EcoVida</h2>
+          <p>Ideas sencillas para cuidar el agua y la energía en casa.</p>
+        </div>
         <div class="contenedor-tarjetas">
+          <!--Tarjeta con imagenn-->
           <article class="tarjeta">
+            <figure>
+              <img src="../images/blog-agua.jpg" alt="Llave de agua cerrada" />
+              <figcaption>Agua</figcaption>
+            </figure>
             <h3>Cómo ahorrar agua sin complicarte</h3>
+            <p>Pequeños hábitos en la ducha y en la cocina pueden ahorrar cientos de litros al mes.</p>
+            <a href="#">Ver más →</a>
           </article>
           <article class="tarjeta">
+            <figure>
+              <img src="../images/blog-luz.jpg" alt="Bombillo LED encendido" />
+              <figcaption>Energía</figcaption>
+            </figure>
             <h3>Tips para bajar el recibo de luz</h3>
+            <p>Apagar lo que no usas y cambiar a bombillos LED reduce el consumo de energía en casa.</p>
+            <a href="#">Ver más →</a>
+          </article>
+          <article class="tarjeta">
+            <figure>
+              <img src="../images/blog-lluvia.jpg" alt="Agua lluvia recogida en un balde" />
+              <figcaption>Agua</figcaption>
+            </figure>
+            <h3>Reutiliza el agua de lluvia</h3>
+            <p>Recoger agua lluvia sirve para regar las plantas y limpiar sin gastar agua potable.</p>
+            <a href="#">Ver más →</a>
+          </article>
+          <article class="tarjeta">
+            <figure>
+              <img src="../images/blog-espera.jpg" alt="Equipos desconectados de la corriente" />
+              <figcaption>Energía</figcaption>
+            </figure>
+            <h3>Apaga los equipos en espera</h3>
+            <p>Los aparatos en espera siguen gastando energía: desconéctalos cuando no los uses.</p>
+            <a href="#">Ver más →</a>
           </article>
         </div>
       </section>

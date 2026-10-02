@@ -1,1 +1,65 @@
-/* Estilos de la página Nosotros - Yair */
+/* ESTILOS SOLO DE LA PÁGINA NOSOTROS  */
+
+/* Banner */
+#nosotros .banner-nosotros {
+    background-image:
+        linear-gradient(20deg, rgba(27, 94, 32, 0.85) 25%, rgba(2, 119, 189, 0.6) 100%),
+        url("../images/hero-agua.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--blanco);
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+#nosotros .banner-nosotros .titulo-pagina {
+    color: var(--blanco);
+    margin-bottom: 10px;
+}
+
+/* Cada tarjeta con su color de borde  */
+#mision {
+    border-top-color: var(--azul);
+}
+
+#equipo {
+    border-top-color: var(--amarillo);
+    flex: 1 1 100%; /* la tarjeta del equipo ocupa toda la fila */
+}
+
+/* Equipo: lista en fila con flex */
+.equipo-lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+    margin-top: 20px;
+}
+
+.integrante {
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.integrante:hover {
+    transform: translateY(-5px);
+}
+
+/* Círculo con la inicial: flex para centrar la letra */
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    background-color: var(--verde);
+    color: var(--blanco);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
