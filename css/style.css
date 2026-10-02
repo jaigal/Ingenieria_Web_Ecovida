@@ -1,10 +1,8 @@
 /* 
    ECOVIDA - ESTILOS GLOBALES 
-   Se carga en TODAS las páginas, .
+   Se carga en TODAS las páginas .
    Aquí va solo lo que comparten todas: paleta, reset, fuente, header,
-   menú, footer y los componentes que se repiten (botón, tarjeta, lista).
-   
-   */
+   menú, footer y los componentes que se repiten (botón, tarjeta, lista) */
 
 /* PALETA DE COLORES (variables)  */
 :root {
