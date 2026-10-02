@@ -1,0 +1,44 @@
+/* ===== ESTILOS SOLO DE LA PÁGINA BLOG ===== */
+
+/* Banner: la misma técnica del hero (degradado + imagen de fondo) en pequeño */
+#blog .banner-blog {
+    background-image:
+        linear-gradient(20deg, rgba(27, 94, 32, 0.85) 25%, rgba(2, 119, 189, 0.6) 100%),
+        url("../images/hero-agua.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--blanco);
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+#blog .banner-blog .titulo-pagina {
+    color: var(--blanco);
+    margin-bottom: 10px;
+}
+
+/* Tarjetas con imagen: figure + figcaption */
+#blog .tarjeta figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+#blog .tarjeta figcaption {
+    font-weight: 700;
+    color: var(--azul);
+    margin: 8px 0 12px;
+}
+
+#blog .tarjeta a {
+    color: var(--azul);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+#blog .tarjeta a:hover {
+    text-decoration: underline;
+}

@@ -1,12 +1,12 @@
-/* =========================================
-   ECOVIDA - ESTILOS GLOBALES (style.css)
-   Se carga en TODAS las páginas, siempre ANTES del CSS de cada página.
+/* 
+   ECOVIDA - ESTILOS GLOBALES 
+   Se carga en TODAS las páginas, .
    Aquí va solo lo que comparten todas: paleta, reset, fuente, header,
    menú, footer y los componentes que se repiten (botón, tarjeta, lista).
-   Responsable: Jessica
-   ========================================= */
+   
+   */
 
-/*  PALETA DE COLORES (variables)*/
+/* PALETA DE COLORES (variables)  */
 :root {
     --verde-oscuro: #1b5e20;
     --verde: #2e7d32;
@@ -18,7 +18,7 @@
     --texto: #263238;
 }
 
-/*  RESET  */
+/* RESET  */
 * {
     margin: 0;
     padding: 0;
@@ -82,7 +82,7 @@ main {
     border-bottom-color: var(--amarillo);
 }
 
-/*  COMPONENTES COMPARTIDOS */
+/*  COMPONENTES COMPARTIDOS  */
 
 /* Botón base (index y calculadora) */
 .btn {
@@ -163,7 +163,7 @@ main {
     margin-bottom: 8px;
 }
 
-/*  FOOTER  */
+/* FOOTER  */
 footer {
     background-image: linear-gradient(90deg, var(--verde-oscuro), var(--azul));
     color: var(--blanco);
@@ -171,7 +171,7 @@ footer {
     padding: 25px 20px;
 }
 
-/* RESPONSIVE (siempre al final) */
+/*  RESPONSIVE   */
 @media (max-width: 575px) {
     .header-principal {
         flex-direction: column;

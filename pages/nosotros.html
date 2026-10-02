@@ -5,61 +5,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nosotros - EcoVida</title>
-    <!--Fuente Nunito de Google Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
-    <!--Primero los estilos generales y después los de esta página-->
+    <!--Hoja de estilos: ../ porque esta página está dentro de la carpeta pages/-->
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/nosotros.css" />
+    <title>Nosotros - EcoVida</title>
   </head>
   <body>
-    <header>
+    <header class="header-principal">
       <!--Encabezado: título y menú de navegación-->
-      <h1>EcoVida</h1>
-      <nav>
+      <h1 class="logo">EcoVida</h1>
+      <nav class="menu">
         <ul>
-          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../index.html#inicio">Inicio</a></li>
           <li><a href="./calcular.html">Calculadora</a></li>
           <li><a href="./consejos.html">Consejos</a></li>
           <li><a href="./blog.html">Blog</a></li>
-          <li><a href="./nosotros.html">Nosotros</a></li>
+          <li><a href="./nosotros.html" class="activo">Nosotros</a></li>
           <li><a href="./contacto.html">Contacto</a></li>
         </ul>
       </nav>
     </header>
-    <main>
+    <main class="contenedor-pagina">
       <!--Contenido de la página: quiénes somos, misión y equipo-->
-      <section id="quienes-somos">
-        <h2>Quiénes somos</h2>
-        <p>
-          EcoVida es un proyecto estudiantil que busca concientizar a los
-          hogares colombianos sobre el consumo responsable del agua y la
-          energía, ofreciendo información clara y herramientas prácticas para el
-          ahorro.
-        </p>
-      </section>
-      <section id="mision">
-        <h2>Misión</h2>
-        <p>
-          Promover hábitos sostenibles mediante un sitio web educativo que ayude
-          a las personas a medir y reducir su consumo, contribuyendo al cuidado
-          del medio ambiente.
-        </p>
-      </section>
-      <section id="equipo">
-        <h2>Nuestro equipo</h2>
-        <ul>
-          <li>Yair Gallego</li>
-          <li>William Castañeda</li>
-          <li>Jessica Rodríguez</li>
-        </ul>
+      <section id="nosotros">
+        <!--Banner: misma técnica del hero (degradado + imagen de fondo) en pequeño-->
+        <div class="banner-nosotros">
+          <h2 class="titulo-pagina">Nosotros</h2>
+          <p>Conoce quiénes somos y por qué creamos EcoVida.</p>
+        </div>
+        <div class="contenedor-tarjetas">
+          <article id="quienes-somos" class="tarjeta">
+            <h3>Quiénes somos</h3>
+            <p>
+              EcoVida es un proyecto estudiantil que busca concientizar a los
+              hogares colombianos sobre el consumo responsable del agua y la
+              energía, ofreciendo información clara y herramientas prácticas para el
+              ahorro.
+            </p>
+          </article>
+          <article id="mision" class="tarjeta">
+            <h3>Misión</h3>
+            <p>
+              Promover hábitos sostenibles mediante un sitio web educativo que ayude
+              a las personas a medir y reducir su consumo, contribuyendo al cuidado
+              del medio ambiente.
+            </p>
+          </article>
+          <article id="equipo" class="tarjeta">
+            <h3>Nuestro equipo</h3>
+            <!--Cada integrante: un círculo con su inicial y su nombre debajo-->
+            <ul class="equipo-lista">
+              <li class="integrante">
+                <span class="avatar">Y</span>
+                <p>Yair Gallego</p>
+              </li>
+              <li class="integrante">
+                <span class="avatar">W</span>
+                <p>William Castañeda</p>
+              </li>
+              <li class="integrante">
+                <span class="avatar">J</span>
+                <p>Jessica Rodríguez</p>
+              </li>
+            </ul>
+          </article>
+        </div>
       </section>
     </main>
     <footer>
-      <!--Pie de página-->
+      <!--Pie de página: derechos de autor-->
       <section>
-        <p>&copy; 2026 EcoVida - Todos los derechos reservados</p>
+        <p>&copy; <span id="anio">2026</span> EcoVida - Todos los derechos reservados</p>
       </section>
     </footer>
+    <!--JavaScript al final del body-->
+    <script src="../js/main.js"></script>
   </body>
 </html>
