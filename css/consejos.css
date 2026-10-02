@@ -1,0 +1,11 @@
+/* =========================================
+   ECOVIDA - ESTILOS DE CONSEJOS
+   (pages/consejos.html)
+   Se carga DESPUÉS de style.css: aquí va solo lo propio de esta página.
+   ========================================= */
+
+/* ===== TARJETAS ===== */
+/* La tarjeta de energía tiene borde amarillo */
+#consejos-energia {
+    border-top-color: var(--amarillo);
+}
