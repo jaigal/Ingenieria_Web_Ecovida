@@ -1,39 +1,38 @@
-// =========================================
-// ECOVIDA - FUNCIONES BÁSICAS DE JAVASCRIPT
-// (este mismo archivo se carga en todas las páginas)
-// =========================================
+"use strict";
 
-// Lista (arreglo) con los consejos que se van a mostrar
-const consejos = [
-  "Cierra la llave mientras te cepillas los dientes.",
-  "Revisa las llaves que gotean y repáralas pronto.",
-  "Usa el agua lluvia para regar las plantas.",
-  "Cambia tus bombillos tradicionales por bombillos LED.",
-  "Desconecta los equipos que quedan en modo de espera.",
-  "Aprovecha la luz natural durante el día."
-];
+import { mostrarConsejo } from "./consejos.js";
+import { mostrarAnio } from "./fecha.js";
+import { activarScrollSuave, actualizarMenuActivo } from "./navegacion.js";
+import { calcular } from "./calculadora.js";
 
-// Función 1: escoge un consejo al azar y lo muestra en el párrafo
-function mostrarConsejo() {
-  const indice = Math.floor(Math.random() * consejos.length);
-  const parrafo = document.getElementById("consejo-texto");
-  parrafo.textContent = consejos[indice];
-}
-
-// Función 2: pone el año actual en el pie de página
-function mostrarAnio() {
-  const span = document.getElementById("anio");
-  if (span) {
-    span.textContent = new Date().getFullYear();
+// boton del consejo del dia (solo esta en el inicio)
+const conectarConsejoDelDia = () => {
+  const botonConsejo = document.getElementById("btn-consejo");
+  if (botonConsejo) {
+    botonConsejo.addEventListener("click", mostrarConsejo);
   }
-}
+  return botonConsejo !== null;
+};
 
-// Conectar el botón con la función.
-// El botón solo existe en index.html: el "if" evita un error en las otras páginas.
-const boton = document.getElementById("btn-consejo");
-if (boton) {
-  boton.addEventListener("click", mostrarConsejo);
-}
+// formulario de la calculadora
+const conectarCalculadora = () => {
+  const formularioCalculadora = document.getElementById("form-calculadora");
+  if (formularioCalculadora) {
+    formularioCalculadora.addEventListener("submit", calcular);
+  }
+  return formularioCalculadora !== null;
+};
 
-// Se ejecuta apenas carga la página
-mostrarAnio();
+// lo que se ejecuta al cargar la pagina
+const iniciarPagina = () => {
+  conectarConsejoDelDia();
+  conectarCalculadora();
+  mostrarAnio();
+  activarScrollSuave();
+  actualizarMenuActivo();
+  window.addEventListener("scroll", actualizarMenuActivo, { passive: true });
+  window.addEventListener("resize", actualizarMenuActivo);
+  return true;
+};
+
+iniciarPagina();
