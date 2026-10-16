@@ -1,49 +1,53 @@
-/* 
-   ECOVIDA - ESTILOS GLOBALES 
-   Se carga en TODAS las páginas .
-   Aquí va solo lo que comparten todas: paleta, reset, fuente, header,
-   menú, footer y los componentes que se repiten (botón, tarjeta, lista) */
+/* ECOVIDA - ESTILOS */
 
-/* PALETA DE COLORES (variables)  */
+
+/* ESTILOS GLOBALES */
+
+/* PALETA DE COLORES (variables) */
 :root {
     --verde-oscuro: #1b5e20;
     --verde: #2e7d32;
     --azul: #0277bd;
     --amarillo: #f9a825;
     --amarillo-oscuro: #f57f17;
-    --blanco: #ffffff;   /* el único blanco de todo el sitio */
+    --blanco: #ffffff;
     --fondo: #f0f4f0;
     --texto: #263238;
 }
 
-/* RESET  */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/*  FUENTE Y BODY  */
+/* scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* FUENTE Y BODY */
 body {
     font-family: "Nunito", Arial, sans-serif;
     color: var(--texto);
     background: var(--fondo);
     line-height: 1.6;
-    /* Footer siempre abajo, aunque la página tenga poco contenido */
+    /* footer siempre abajo */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
 main {
-    flex: 1;      /* ocupa el espacio que sobra y empuja el footer hacia abajo */
+    flex: 1;
     width: 100%;
 }
 
-/*  HEADER  */
+/* HEADER */
 .header-principal {
     display: flex;
-    justify-content: space-between; /* logo a la izquierda, menú a la derecha */
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
@@ -56,7 +60,7 @@ main {
     font-size: 2rem;
 }
 
-/*  MENÚ  */
+/* MENÚ */
 .menu ul {
     display: flex;
     flex-wrap: wrap;
@@ -73,16 +77,16 @@ main {
     transition: color 0.3s, border-color 0.3s;
 }
 
-/* :hover = mouse encima / .activo = la página en la que estoy */
+/* .activo lo pone JS */
 .menu a:hover,
 .menu a.activo {
     color: var(--amarillo);
     border-bottom-color: var(--amarillo);
 }
 
-/*  COMPONENTES COMPARTIDOS  */
+/* COMPONENTES COMPARTIDOS */
 
-/* Botón base (index y calculadora) */
+/* Botón base */
 .btn {
     display: inline-block;
     padding: 12px 28px;
@@ -105,7 +109,7 @@ main {
     background-color: var(--amarillo-oscuro);
 }
 
-/* Contenedores (se usan en casi todas las páginas) */
+/* Contenedores */
 .contenedor-pagina {
     max-width: 900px;
     margin: 0 auto; /* centra el contenedor */
@@ -122,7 +126,7 @@ main {
     padding: 4% 3%;
 }
 
-/* Tarjeta base (index, consejos, nosotros, blog, contacto y calculadora) */
+/* Tarjeta base */
 .tarjeta {
     flex: 1 1 300px; /* crece, se encoge, tamaño base 300px */
     background-color: var(--blanco);
@@ -152,7 +156,7 @@ main {
     margin-bottom: 15px;
 }
 
-/* Listas dentro de tarjetas: el reset les quitó el espacio de los puntos */
+/* listas dentro de las tarjetas */
 .lista {
     padding-left: 20px;
 }
@@ -161,7 +165,7 @@ main {
     margin-bottom: 8px;
 }
 
-/* FOOTER  */
+/* FOOTER */
 footer {
     background-image: linear-gradient(90deg, var(--verde-oscuro), var(--azul));
     color: var(--blanco);
@@ -169,8 +173,338 @@ footer {
     padding: 25px 20px;
 }
 
-/*  RESPONSIVE   */
+
+/* INICIO */
+
+/* Marquesina */
+.marquesina {
+    background-color: var(--verde);
+    color: var(--blanco);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 6px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.mensajes {
+    display: inline-flex;
+    gap: 60px;
+    padding-left: 100%;    /* empiezan a la derecha */
+    animation: desplazar 25s linear infinite;
+}
+
+/* se detiene al pasar el mouse */
+.marquesina:hover .mensajes {
+    animation-play-state: paused;
+}
+
+/* animacion de derecha a izquierda */
+@keyframes desplazar {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Hero */
+.hero {
+    /* degradado encima de la foto */
+    background-image:
+        linear-gradient(20deg, rgba(27, 94, 32, 0.85) 25%, rgba(2, 119, 189, 0.6) 100%),
+        url("images/hero-solar.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--blanco);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 60px 8%;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* boton secundario */
+.btn-secondary {
+    background-color: var(--blanco);
+    color: var(--verde-oscuro);
+}
+
+.btn-secondary:hover {
+    background-color: var(--fondo);
+}
+
+/* Tarjetas de agua y energia */
+#energia {
+    border-top-color: var(--amarillo);
+}
+
+/* Consejo del dia */
+.consejo {
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--blanco);
+    border-left: 6px solid var(--amarillo);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.consejo h2 {
+    color: var(--verde);
+    margin-bottom: 10px;
+}
+
+#consejo-texto {
+    font-size: 1.15rem;
+    margin-bottom: 20px;
+}
+
+
+/* CALCULADORA */
+
+.formulario label {
+    display: block;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.formulario input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.formulario input:focus {
+    outline: none;
+    border-color: var(--verde);
+}
+
+/* casilla con error */
+.formulario input.input-error {
+    border-color: var(--amarillo-oscuro);
+}
+
+.formulario button {
+    margin-top: 20px;
+}
+
+/* Mensaje de error de la calculadora */
+.calc-error {
+    margin-top: 15px;
+    font-weight: 600;
+    color: var(--amarillo-oscuro);
+}
+
+/* resultados */
+.resultado {
+    margin-top: 25px;
+}
+
+.resultado-item {
+    background-color: var(--fondo);
+    padding: 10px 15px;
+    border-left: 4px solid var(--verde);
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.resultado-item p {
+    margin-bottom: 4px;
+}
+
+/* color segun el nivel */
+.resultado-item.nivel-medio {
+    border-left-color: var(--amarillo);
+}
+
+.resultado-item.nivel-alto {
+    border-left-color: var(--amarillo-oscuro);
+}
+
+.resultado .btn {
+    margin-top: 10px;
+}
+
+
+/* CONSEJOS */
+
+/* La tarjeta de energía tiene borde amarillo */
+#consejos-energia {
+    border-top-color: var(--amarillo);
+}
+
+/* consejos personalizados */
+#consejos-personalizados {
+    flex: 1 1 100%;
+    border-top-color: var(--azul);
+}
+
+
+/* BLOG */
+
+#blog .banner-blog {
+    background-image:
+        linear-gradient(20deg, rgba(27, 94, 32, 0.85) 25%, rgba(2, 119, 189, 0.6) 100%),
+        url("images/hero-agua.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--blanco);
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+#blog .banner-blog .titulo-pagina {
+    color: var(--blanco);
+    margin-bottom: 10px;
+}
+
+#blog .tarjeta figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+#blog .tarjeta figcaption {
+    font-weight: 700;
+    color: var(--azul);
+    margin: 8px 0 12px;
+}
+
+#blog .tarjeta a {
+    color: var(--azul);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+#blog .tarjeta a:hover {
+    text-decoration: underline;
+}
+
+
+/* NOSOTROS */
+
+#nosotros .banner-nosotros {
+    background-image:
+        linear-gradient(20deg, rgba(27, 94, 32, 0.85) 25%, rgba(2, 119, 189, 0.6) 100%),
+        url("images/hero-agua.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--blanco);
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+#nosotros .banner-nosotros .titulo-pagina {
+    color: var(--blanco);
+    margin-bottom: 10px;
+}
+
+#mision {
+    border-top-color: var(--azul);
+}
+
+#equipo {
+    border-top-color: var(--amarillo);
+    flex: 1 1 100%; /* la tarjeta del equipo ocupa toda la fila */
+}
+
+.equipo-lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+    margin-top: 20px;
+}
+
+.integrante {
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.integrante:hover {
+    transform: translateY(-5px);
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    background-color: var(--verde);
+    color: var(--blanco);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+
+/* CONTACTO */
+
+#contacto .lista {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+#contacto .lista li {
+    background-color: var(--fondo);
+    padding: 10px 15px;
+    border-left: 4px solid var(--verde);
+    border-radius: 8px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+#contacto .lista li:hover {
+    transform: translateX(5px);
+    border-left-color: var(--amarillo);
+}
+
+
+/* RESPONSIVE */
+
+/* celulares */
 @media (max-width: 575px) {
+    /* Globales */
     .header-principal {
         flex-direction: column;
         padding: 15px 20px;
@@ -183,5 +517,36 @@ footer {
 
     .tarjeta {
         padding: 1.5rem;
+    }
+
+    /* Inicio */
+    .hero {
+        min-height: 70vh;
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    /* Contacto */
+    #contacto .lista li {
+        font-size: 0.95rem;
+    }
+}
+
+/* sin scroll suave si el sistema pide menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
     }
 }

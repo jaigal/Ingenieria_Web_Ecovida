@@ -27,7 +27,7 @@
       </nav>
     </header>
     <main class="contenedor-pagina">
-      <!--Formulario para estimar el consumo del hogar (el cálculo en JS queda para la entrega final)-->
+      <!--Formulario para estimar el consumo del hogar-->
       <section id="calculadora" class="tarjeta">
         <h2>Calculadora de consumo</h2>
         <p>
@@ -45,7 +45,7 @@
           <label for="energia-mes">Consumo de energía al mes (kWh):</label>
           <input type="number" id="energia-mes" name="energia-mes" min="0" />
 
-          <!--type="button": por ahora no envía el formulario ni recarga la página-->
+          <!--type="button": no envía el formulario-->
           <button type="button" class="btn btn-primary">Calcular</button>
         </form>
       </section>
@@ -56,7 +56,7 @@
         <p>&copy; <span id="anio">2026</span> EcoVida - Todos los derechos reservados</p>
       </section>
     </footer>
-    <!--JavaScript al final del body-->
-    <script src="../js/main.js"></script>
+    <!--JavaScript al final del body (type="module" para usar import / export)-->
+    <script type="module" src="../js/main.js"></script>
   </body>
 </html>
