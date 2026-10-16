@@ -5,11 +5,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--Fuente de Google Fonts (igual que en el código de clase)-->
+    <!--Fuente de Google Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
-    <!--Primero los estilos generales y después los de esta página-->
+    <!--Hoja de estilos-->
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/index.css" />
     <title>EcoVida - Ahorro de Agua y Energía</title>
   </head>
   <body>
@@ -25,20 +24,23 @@
     <header class="header-principal">
       <!--Encabezado: título principal, logo y menú de navegación-->
       <h1 class="logo">EcoVida</h1>
+      <!--Menú: cada enlace lleva a una sección de la página-->
       <nav class="menu">
         <ul>
           <li><a href="#inicio" class="activo">Inicio</a></li>
-          <li><a href="./pages/calcular.html">Calculadora</a></li>
-          <li><a href="./pages/consejos.html">Consejos</a></li>
-          <li><a href="./pages/blog.html">Blog</a></li>
-          <li><a href="./pages/nosotros.html">Nosotros</a></li>
-          <li><a href="./pages/contacto.html">Contacto</a></li>
+          <li><a href="#calculadora">Calculadora</a></li>
+          <li><a href="#consejos">Consejos</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <!--Contenido principal (estilo SPA: las secciones grandes se abren en pages/)-->
-      <!--Hero: la sección más destacada; su imagen de fondo se pone desde el CSS-->
+      <!--Contenido principal-->
+
+      <!--INICIO-->
+      <!--Hero: la imagen de fondo está en el CSS-->
       <section id="inicio" class="hero">
         <div class="hero-content">
           <h2>Ahorra agua y energía hoy</h2>
@@ -54,12 +56,12 @@
             cambio climático.
           </p>
           <div class="hero-buttons">
-            <a href="./pages/calcular.html" class="btn btn-primary">Calcular mi huella</a>
-            <a href="#agua" class="btn btn-secondary">Ver consejos</a>
+            <a href="#calculadora" class="btn btn-primary">Calcular mi huella</a>
+            <a href="#consejos" class="btn btn-secondary">Ver consejos</a>
           </div>
         </div>
       </section>
-      <!--Tarjetas: agua y energía, una al lado de la otra con flex-->
+      <!--Tarjetas de agua y energía-->
       <div class="contenedor-tarjetas">
         <section id="agua" class="tarjeta">
           <h2>Agua</h2>
@@ -93,15 +95,193 @@
         <p id="consejo-texto">Presiona el botón para ver un consejo.</p>
         <button id="btn-consejo" class="btn btn-primary" type="button">Dame un consejo</button>
       </section>
+
+      <!--CALCULADORA-->
+      <div class="contenedor-pagina">
+        <!--Formulario de la calculadora-->
+        <section id="calculadora" class="tarjeta">
+          <h2>Calculadora de consumo</h2>
+          <p>
+            Ingresa tus datos para estimar tu huella de agua y energía en el
+            hogar.
+          </p>
+          <!--novalidate: los errores los muestra JavaScript-->
+          <form id="form-calculadora" class="formulario" novalidate>
+            <!--"for" del label = "id" del input: al hacer clic en el texto se activa la casilla-->
+            <label for="personas">Personas en el hogar:</label>
+            <input type="number" id="personas" name="personas" min="1" step="1" />
+
+            <label for="agua-mes">Consumo de agua al mes (litros):</label>
+            <input type="number" id="agua-mes" name="agua-mes" min="0" />
+
+            <label for="energia-mes">Consumo de energía al mes (kWh):</label>
+            <input type="number" id="energia-mes" name="energia-mes" min="0" />
+
+            <!--type="submit": JavaScript evita que la página se recargue-->
+            <button type="submit" class="btn btn-primary">Calcular</button>
+          </form>
+
+          <!--Mensaje de error-->
+          <p id="calc-error" class="calc-error" hidden></p>
+
+          <!--Resultados (los llena JavaScript)-->
+          <div id="resultado" class="resultado" aria-live="polite" hidden>
+            <h3>Tu resultado</h3>
+            <div id="resultado-agua" class="resultado-item"></div>
+            <div id="resultado-energia" class="resultado-item"></div>
+            <a href="#consejos" class="btn btn-primary">Ver mis consejos personalizados</a>
+          </div>
+        </section>
+      </div>
+
+      <!--CONSEJOS-->
+      <section id="consejos" class="contenedor-tarjetas">
+        <!--Consejos según el resultado-->
+        <article id="consejos-personalizados" class="tarjeta">
+          <h2>Tus consejos personalizados</h2>
+          <p id="personalizados-texto">
+            Usa la calculadora para recibir consejos según tu consumo.
+          </p>
+          <ul id="personalizados-lista" class="lista"></ul>
+        </article>
+        <!--Consejos de ahorro por categoría-->
+        <section id="consejos-agua" class="tarjeta">
+          <h2>Consejos para ahorrar agua</h2>
+          <ul class="lista">
+            <li>Cerrar la llave mientras te cepillas los dientes.</li>
+            <li>Reparar las fugas y las llaves que gotean.</li>
+            <li>Tomar duchas más cortas.</li>
+            <li>Reutilizar el agua lluvia para regar las plantas.</li>
+          </ul>
+        </section>
+        <section id="consejos-energia" class="tarjeta">
+          <h2>Consejos para ahorrar energía</h2>
+          <ul class="lista">
+            <li>Apagar las luces al salir de una habitación.</li>
+            <li>Desconectar los aparatos que no se están usando.</li>
+            <li>Cambiar los bombillos tradicionales por bombillos LED.</li>
+            <li>Aprovechar la luz natural durante el día.</li>
+          </ul>
+        </section>
+      </section>
+
+      <!--BLOG-->
+      <section id="blog" class="contenedor-pagina">
+        <!--Banner-->
+        <div class="banner-blog">
+          <h2 class="titulo-pagina">Blog de EcoVida</h2>
+          <p>Ideas sencillas para cuidar el agua y la energía en casa.</p>
+        </div>
+        <div class="contenedor-tarjetas">
+          <!--Tarjeta con imagen-->
+          <article class="tarjeta">
+            <figure>
+              <img src="./images/blog-agua.jpg" alt="Llave de agua cerrada" />
+              <figcaption>Agua</figcaption>
+            </figure>
+            <h3>Cómo ahorrar agua sin complicarte</h3>
+            <p>Pequeños hábitos en la ducha y en la cocina pueden ahorrar cientos de litros al mes.</p>
+            <a href="#">Ver más →</a>
+          </article>
+          <article class="tarjeta">
+            <figure>
+              <img src="./images/blog-luz.jpg" alt="Bombillo LED encendido" />
+              <figcaption>Energía</figcaption>
+            </figure>
+            <h3>Tips para bajar el recibo de luz</h3>
+            <p>Apagar lo que no usas y cambiar a bombillos LED reduce el consumo de energía en casa.</p>
+            <a href="#">Ver más →</a>
+          </article>
+          <article class="tarjeta">
+            <figure>
+              <img src="./images/blog-lluvia.jpg" alt="Agua lluvia recogida en un balde" />
+              <figcaption>Agua</figcaption>
+            </figure>
+            <h3>Reutiliza el agua de lluvia</h3>
+            <p>Recoger agua lluvia sirve para regar las plantas y limpiar sin gastar agua potable.</p>
+            <a href="#">Ver más →</a>
+          </article>
+          <article class="tarjeta">
+            <figure>
+              <img src="./images/blog-espera.jpg" alt="Equipos desconectados de la corriente" />
+              <figcaption>Energía</figcaption>
+            </figure>
+            <h3>Apaga los equipos en espera</h3>
+            <p>Los aparatos en espera siguen gastando energía: desconéctalos cuando no los uses.</p>
+            <a href="#">Ver más →</a>
+          </article>
+        </div>
+      </section>
+
+      <!--NOSOTROS-->
+      <section id="nosotros" class="contenedor-pagina">
+        <!--Banner-->
+        <div class="banner-nosotros">
+          <h2 class="titulo-pagina">Nosotros</h2>
+          <p>Conoce quiénes somos y por qué creamos EcoVida.</p>
+        </div>
+        <div class="contenedor-tarjetas">
+          <article id="quienes-somos" class="tarjeta">
+            <h3>Quiénes somos</h3>
+            <p>
+              EcoVida es un proyecto estudiantil que busca concientizar a los
+              hogares colombianos sobre el consumo responsable del agua y la
+              energía, ofreciendo información clara y herramientas prácticas para el
+              ahorro.
+            </p>
+          </article>
+          <article id="mision" class="tarjeta">
+            <h3>Misión</h3>
+            <p>
+              Promover hábitos sostenibles mediante un sitio web educativo que ayude
+              a las personas a medir y reducir su consumo, contribuyendo al cuidado
+              del medio ambiente.
+            </p>
+          </article>
+          <article id="equipo" class="tarjeta">
+            <h3>Nuestro equipo</h3>
+            <!--Integrantes del equipo-->
+            <ul class="equipo-lista">
+              <li class="integrante">
+                <span class="avatar">Y</span>
+                <p>Yair Gallego</p>
+              </li>
+              <li class="integrante">
+                <span class="avatar">W</span>
+                <p>William Castañeda</p>
+              </li>
+              <li class="integrante">
+                <span class="avatar">J</span>
+                <p>Jessica Rodríguez</p>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!--CONTACTO-->
+      <div class="contenedor-pagina">
+        <!--Información de contacto de EcoVida-->
+        <section id="contacto" class="tarjeta">
+          <h2>Contáctanos</h2>
+          <p>¿Tienes dudas, sugerencias o quieres unirte a la causa? Escríbenos y con gusto te responderemos.</p>
+          <ul class="lista">
+            <li>Correo: ecovida.pruebas@gmail.com</li>
+            <li>Ciudad: Bogotá, Colombia</li>
+            <li>Teléfono: +57 123456789</li>
+            <li>Redes: Instagram @ecovida.co · Facebook: EcoVida</li>
+          </ul>
+        </section>
+      </div>
     </main>
     <footer>
-      <!--Pie de página: derechos de autor, redes sociales, mini-mapa del sitio y mini formulario de contacto-->
+      <!--Pie de página: derechos de autor-->
       <section>
         <!--El año lo actualiza JavaScript-->
         <p>&copy; <span id="anio">2026</span> EcoVida - Todos los derechos reservados</p>
       </section>
     </footer>
-    <!--JavaScript al final del body: así el HTML ya existe cuando el script lo busca-->
-    <script src="./js/main.js"></script>
+    <!--JavaScript al final del body (type="module" para usar import / export)-->
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>
